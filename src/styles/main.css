@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap");
+.container {
+  width: 70%;
+  height: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  min-height: 100vh;
+}
+
+.container form {
+  min-width: 70%;
+  border: 0.5px solid #f9f9f9;
+  padding: 1 rem;
+}
+
+.container form h1 {
+  text-align: center;
+}
+
+.container form div {
+  padding: 0.7em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80%;
+  margin: auto;
+}
+
+.container form button {
+  border: 0.5px solid #f9f9f9;
+  width: 100%;
+  margin: auto;
+  margin-top: 1.2rem;
+  background-color: #EC1D24;
+  padding: 0.4rem;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.container form button:hover {
+  background-color: #a50707;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+@media all and (min-width: 768px) {
+  .container {
+    width: 50%;
+  }
+}
+
+@media all and (max-width: 480px) {
+  .container {
+    background: red;
+    width: 50%;
+    height: 40vh;
+  }
+  .container h1 {
+    font-size: inherit;
+  }
+  .container div {
+    padding: 0.5em;
+  }
+}
+
+header {
+  -webkit-box-shadow: 1px, solid, black;
+          box-shadow: 1px, solid, black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 12px 15px;
+}
+
+header div {
+  cursor: pointer;
+}
+
+body {
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+}
+
+body #root {
+  min-height: 100vh;
+}
+/*# sourceMappingURL=main.css.map */

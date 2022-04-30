@@ -1,0 +1,9 @@
+header {
+    box-shadow: 1px, solid, black;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 15px;
+    div {
+        cursor: pointer;
+    }
+}

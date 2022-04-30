@@ -1,0 +1,13 @@
+@import "variables";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
+@import "../components/views/Login/login";
+@import "../components/Header/header";
+
+body {
+    font-family: Nunito, sans-serif;
+    font-weight: 400;
+    
+    #root {
+        min-height: 100vh;
+    }
+}
