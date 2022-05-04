@@ -67,7 +67,6 @@
 
 @media all and (max-width: 480px) {
   .container {
-    background: red;
     width: 50%;
     height: 40vh;
   }
@@ -95,6 +94,65 @@ header div {
   cursor: pointer;
 }
 
+.containerTasks {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10%;
+  width: 80%;
+}
+
+.containerTasks .card-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.containerTasks .card-header div {
+  text-align: end;
+}
+
+.containerTasks div {
+  width: 100%;
+}
+
+.error {
+  border: 1px solid red;
+}
+
+@media screen and (min-width: 768px) {
+  .list {
+    display: -ms-grid;
+    display: grid;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: space-evenly;
+        -ms-flex-align: space-evenly;
+            align-items: space-evenly;
+    -ms-grid-columns: 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    row-gap: .7rem;
+    -webkit-column-gap: 1rem;
+            column-gap: 1rem;
+  }
+  .list .card {
+    margin: 1rem;
+    padding: 0.5rem;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+}
+
 body {
   font-family: Nunito, sans-serif;
   font-weight: 400;
@@ -102,5 +160,19 @@ body {
 
 body #root {
   min-height: 100vh;
+}
+
+.button {
+  background-color: #EC1D24;
+  color: #fafafa;
+  padding: 0.4rem;
+  border-radius: 15%;
+  border: 0.5px solid #f9f9f9;
+}
+
+.button:hover {
+  background-color: #a50707;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 /*# sourceMappingURL=main.css.map */

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
 @import "../components/views/Login/login";
 @import "../components/Header/header";
+@import "../components/views/Tasks/tasks";
 
 body {
     font-family: Nunito, sans-serif;
@@ -10,4 +11,16 @@ body {
     #root {
         min-height: 100vh;
     }
+}
+
+.button {
+    background-color: $red;
+    color: #fafafa;
+    padding: 0.4rem;
+    &:hover {
+        background-color: #a50707;
+        transition: .5s;
+    }
+    border-radius: 15%;
+    border: $border;
 }
