@@ -38,7 +38,7 @@ export const SignIn = () => {
     const [data, setData] =  useState()
 
     useEffect(() => {
-        fetch(`${REACT_APP_API_ENDPOINT}/auth/data`)
+        fetch(`${REACT_APP_API_ENDPOINT}auth/data`)
         .then(res => res.json())
         .then(res => setData(res.result))
         .catch(err => console.log(err.message))

@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 export const Login = () => {
     const navigate = useNavigate();
   
+    const { REACT_APP_API_ENDPOINT } = process.env;
 
     const initialValues = {
         userName: '',
@@ -17,10 +18,27 @@ export const Login = () => {
         password: Yup.string().required("Enter a password"),
     })
 
-    const onSubmit = values => {
-        localStorage.setItem('logged', 'yes')
-        navigate("/", { replace : true})
-    }
+    const onSubmit = () => {
+        const { userName, password } = formik.values;
+        fetch(`${REACT_APP_API_ENDPOINT}auth/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userName,
+                password
+        })
+        })
+        .then(res => res.json())
+        .then(data => { 
+            localStorage.setItem("token", data?.result?.token)
+            navigate("/",{
+            replace: true
+            })
+            
+        })
+        }
 
     const formik = useFormik({ initialValues, onSubmit, validationSchema })
 

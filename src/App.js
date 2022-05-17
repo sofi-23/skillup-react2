@@ -20,7 +20,7 @@ const Error404  = lazy(() => import('./components/views/Error404/Error404.jsx'))
 
 //Components
 const RequireAuth = ({ children }) => {
-  if (localStorage.getItem('logged')) {
+  if (localStorage.getItem('token')) {
     return children
   }else {
     return <Navigate to="/login" replace={true} /> //Normally a call to navigate will push a new entry into the history stack so the user can click the back button to get back to the page. If you pass replace: true to navigate then the current entry in the history stack will be replaced with the new one.
