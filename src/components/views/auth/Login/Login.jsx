@@ -2,6 +2,7 @@
 import { useFormik } from 'formik';
 import { useNavigate, Link } from 'react-router-dom';
 import * as Yup from 'yup';
+import { swal } from '../../../../utils/Alert';
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -32,10 +33,16 @@ export const Login = () => {
         })
         .then(res => res.json())
         .then(data => { 
-            localStorage.setItem("token", data?.result?.token)
-            navigate("/",{
-            replace: true
-            })
+            if (data.status_code === 200) {
+                localStorage.setItem("token", data?.result?.token)
+                localStorage.setItem("userName", data?.result?.user.userName)
+                navigate("/",{
+                replace: true
+                })
+            }else {
+                swal()
+            }
+            
             
         })
         }

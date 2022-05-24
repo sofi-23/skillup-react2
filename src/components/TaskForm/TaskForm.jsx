@@ -1,28 +1,41 @@
 import { ErrorMessage, useFormik } from 'formik';
 import * as Yup from 'yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { addTask } from '../../store/actions/tasksActions';
+
 
 export default function TaskForm() {
+    const dispatch = useDispatch();
+    
+    const { tasks } = useSelector(state => state.tasksReducer);
+
+    const { REACT_APP_API_ENDPOINT: API_ENDPOINT } = process.env;
 
     const initialValues = {
         title: '',
         status: '',
-        priority: '',
+        importance: '',
         description: '',
     }
 
-    const onSubmit = ()  => {
-        alert()
+    //USE REDUX!!
+    const onSubmit = () => {
+     dispatch(addTask(values))
     }
+        
     const validationSchema = Yup.object().shape({
-        title: Yup.string().min(6, "Write at least 6 characters").required('Title is required'),
+        title: Yup.string().min(3, "Write at least 3 characters").required('Title is required'),
         status: Yup.string().required("Choose a status"),
-        priority: Yup.string().required("Choose a priority")
+        importance: Yup.string().required("Choose an importance"),
+        description: Yup.string().required('Description is required'),
 
     })
 
     const formik = useFormik({initialValues, onSubmit, validationSchema})
 
-    const {errors, touched } = formik;
+    const {errors, touched, values } = formik;
     
     return (
         <> 
@@ -32,33 +45,58 @@ export default function TaskForm() {
                 
                 <div>
                     <div>
-                        <input className={errors.title ? "error" : ""} name="title" onChange={formik.handleChange} onBlur={formik.handleBlur} />
+                        <input 
+                        className={errors.title && touched.title ? "error" : ""} 
+                        name="title" 
+                        onChange={formik.handleChange} 
+                        onBlur={formik.handleBlur}
+                        value={values.title} />
                     </div>
                     {errors.title && touched.title   && <span>{errors.title}</span>}
                     <div>
-                        <select  className={errors.title ? "error" : ""}  name="status" onChange={formik.handleChange}  onBlur={formik.handleBlur}>
+                        <select  
+                        className={errors.status && touched.status ? "error" : ""}  
+                        name="status" 
+                        onChange={formik.handleChange}  
+                        onBlur={formik.handleBlur}
+                        value={values.status}>
                             <option value="">Select a status</option>
-                            <option value="new">New</option>
-                            <option value="inProcess">In process</option>
-                            <option value="finished">Finished</option>
+                            <option value="NEW">New</option>
+                            <option value="IN PROGRESS">In progress</option>
+                            <option value="FINISHED">Finished</option>
                         </select>
                     </div>
                     {errors.status && touched.status  && <span>{errors.status}</span>}
                     <div>
-                        <select  className={errors.title ? "error" : ""}  name="priority" onChange={formik.handleChange}  onBlur={formik.handleBlur}>
-                            <option value="">Select a priority</option>
-                            <option value="low">Low</option>
-                            <option value="medium">Medium</option>
-                            <option value="high">High</option>
+                        <select  
+                        className={errors.importance &&  touched.importance ? "error" : ""}  
+                        name="importance" 
+                        onChange={formik.handleChange}  
+                        onBlur={formik.handleBlur}
+                        value={values.importance}>
+                            <option value="">Select an importance</option>
+                            <option value="LOW">Low</option>
+                            <option value="MEDIUM">Medium</option>
+                            <option value="HIGH">High</option>
                         </select>
                     </div>
-                    {errors.priority  && touched.priority   && <span>{errors.priority}</span>}
+                    {errors.importance  && touched.importance   && <span>{errors.importance}</span>}
                     <div>
-                        <textarea name="description" placeholder="Add description" onChange={formik.handleChange} />
+                        <textarea 
+                        name="description" 
+                        placeholder="Add description" 
+                        onChange={formik.handleChange} 
+                        className={errors.description && touched.description ? "error" : ""}
+                        onBlur={formik.handleBlur}
+                        value={values.description}/>
+                        
                     </div>
+                    
+                    {errors.description  && touched.description   && <span>{errors.description}</span>}
                 </div>
                 <button type="submit">Create</button>
             </form>
+            <ToastContainer />
         </section>
         </>
         )

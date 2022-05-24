@@ -23,16 +23,22 @@
 
 @media screen and (min-width: 768px) {
     .list {
-        display: grid;
-        justify-content: center;
+        display: flex;
+        justify-content: start;
         align-items: space-evenly;
-        grid-template-columns: 1fr 1fr 1fr;
-        row-gap: .7rem;
-        column-gap: 1rem;
+        div {
+            display: flex;
+            flex-direction: column;
+        }
+
         .card {
             margin: 1rem;
             padding: 0.5rem;
             box-sizing: border-box;
+            .card_buttons_container {
+                display: flex;
+                flex-direction: row;
+            }
             
         }
     }
