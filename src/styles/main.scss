@@ -1,27 +1,36 @@
 @import "variables";
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;700&display=swap');
+@import "components";
 @import "../components/views/auth/Login/login";
 @import "../components/Header/header";
 @import "../components/views/Tasks/tasks";
 @import "../components/Card/card";
 
-body {
+
+html {
+    height: 100%;
+    body {
     font-family: Nunito, sans-serif;
     font-weight: 400;
-    
+    background-color: $background-color;
+    height: 100%;
     #root {
-        min-height: 100vh;
+        height: 100%;
+    }
+    .page {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
+}
 
-.button {
-    background-color: $red;
-    color: #fafafa;
-    padding: 0.4rem;
-    &:hover {
-        background-color: #a50707;
-        transition: .5s;
-    }
-    border-radius: 15%;
-    border: $border;
+
+
+
+* {
+    box-sizing:border-box;
+    margin: 0;
+
 }

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Switch, FormControlLabel } from '@mui/material'
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //VARIABLES DE ENTORNO:
 const { REACT_APP_API_ENDPOINT } =  process.env ;
@@ -85,11 +86,14 @@ export const SignIn = () => {
     return (
         <>
             <div className="container">
-                <form onSubmit={formik.handleSubmit}>
-                    <h1>Sign in</h1>
+                <form className="form" onSubmit={formik.handleSubmit}>
                     <div>
-                        <label>Username:</label>
+                        <h1 className="title">Sign in</h1>
+                    </div>
+                    <div>
+                        <label className="label">Username:</label>
                         <input 
+                            className="input"
                             name="userName" 
                             type="text" 
                             value={formik.values.userName} 
@@ -100,8 +104,9 @@ export const SignIn = () => {
                         {formik.errors.userName && formik.touched.userName && <p>{formik.errors.userName}</p>}
                     </div>
                     <div>
-                        <label>Password:</label>
+                        <label className="label">Password:</label>
                         <input 
+                            className="input"
                             name="password" 
                             type="password" 
                             value={formik.values.password} 
@@ -111,8 +116,9 @@ export const SignIn = () => {
                         {formik.errors.password && formik.touched.password &&  <p>{formik.errors.password}</p>}
                     </div>
                     <div>
-                        <label>Email:</label>
+                        <label className="label">Email:</label>
                         <input 
+                            className="input"
                             name="email" 
                             type="email" 
                             value={formik.values.email} 
@@ -121,6 +127,7 @@ export const SignIn = () => {
                         />
                         {formik.errors.email &&  formik.touched.email && <p>{formik.errors.email}</p>}
                     </div>
+                    <div>
                     <FormControlLabel 
                         control={
                             <Switch
@@ -131,16 +138,19 @@ export const SignIn = () => {
                             />
                         }
                         label="I'm already on a team"
-                    />
+                    /> 
+                    </div>
                     {formik.values.switch && 
                         <div>
-                            <label>Team id:</label>
-                            <input type="text" name="teamID" value={formik.values.teamID} onChange={formik.handleChange}  onBlur={formik.handleBlur}    />
+                            <label className="label">Team id:</label>
+                            <input className="input" type="text" name="teamID" value={formik.values.teamID} onChange={formik.handleChange}  onBlur={formik.handleBlur}    />
                         </div>
                         }
+                   
                     <div>
-                        <label>Role:</label>
+                        <label className="label">Role:</label>
                         <select 
+                            className="input"
                             name="role" 
                             type="select" 
                             value={formik.values.role} 
@@ -157,8 +167,9 @@ export const SignIn = () => {
                         {formik.errors.role &&  formik.touched.role && <p>{formik.errors.role}</p>}
                     </div>
                     <div>
-                        <label>Continent:</label>
+                        <label className="label">Continent:</label>
                         <select 
+                            className="input"
                             name="continent" 
                             type="select" 
                             value={formik.values.continent} 
@@ -179,8 +190,9 @@ export const SignIn = () => {
                        
                             {formik.values.continent === "America" && 
                             <>
-                                <label>Region:</label>
+                                <label className="label">Region:</label>
                                     <select 
+                                        className="input"
                                         name="region" 
                                         type="select" 
                                         value={formik.values.region} 
@@ -201,6 +213,9 @@ export const SignIn = () => {
                     </div>
                     <div>
                         <button type="submit" >Sign in</button>
+                    </div>
+                    <div>
+                        <Link to="/login" className="label">Login</Link>
                     </div>
                 </form>
             </div>

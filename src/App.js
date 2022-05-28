@@ -6,9 +6,8 @@ import { lazy, Suspense } from 'react';
 
 //Components
 import { Login } from './components/views/auth/Login/Login.jsx';
-import { SignIn } from './components/views/auth/Register/SignIn.jsx';
+import { SignIn }  from './components/views/auth/Register/SignIn.jsx';
 import Tasks from './components/views/Tasks/Tasks.jsx';
-import Register from './components/views/auth/Register/Register.jsx';
 import Registered from '././components/views/auth/Registered/Registered.jsx';
 
 //Libraries
@@ -59,12 +58,6 @@ function App() {
             element={
             <motion.div className="page" initial="out" animate="in" exit="out" variants={pageTransition}>
               <SignIn />
-              </motion.div>} />
-              <Route 
-            path="/register" 
-            element={
-            <motion.div className="page" initial="out" animate="in" exit="out" variants={pageTransition}>
-              <Register />
               </motion.div>} />
               <Route 
             path="/registered/:teamId" 
