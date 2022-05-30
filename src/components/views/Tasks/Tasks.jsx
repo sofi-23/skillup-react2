@@ -76,6 +76,7 @@ export default function Tasks() {
 
     return(
         <>
+        <div>
             <Header />
             <main className="container containerTasks">
                 <TaskForm />
@@ -146,6 +147,7 @@ export default function Tasks() {
                     </div>
                 )}
             </main>
+        </div>
         </>
     )
 };

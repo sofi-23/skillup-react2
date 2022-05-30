@@ -51,12 +51,16 @@ export const Login = () => {
 
     return (
         <>
+        <div className="pageContainer">
             <div className="container">
-                <form onSubmit={formik.handleSubmit}>
-                    <h1>Login</h1>
+                <form className="form" onSubmit={formik.handleSubmit}>
                     <div>
-                        <label>Username:</label>
+                        <h1 className="title">Login</h1>
+                    </div>
+                    <div>
+                        <label className="label">Username:</label>
                         <input 
+                            className="input"
                             name="userName" 
                             type="text" 
                             value={formik.values.userName} 
@@ -66,8 +70,9 @@ export const Login = () => {
                         {formik.errors.userName && formik.touched.userName && <p>{formik.errors.userName}</p>}
                     </div>
                     <div>
-                        <label>Password:</label>
+                        <label className="label">Password:</label>
                         <input 
+                            className="input"
                             name="password" 
                             type="password" 
                             value={formik.values.password} 
@@ -77,13 +82,14 @@ export const Login = () => {
                         {formik.errors.password && formik.touched.password  && <p>{formik.errors.password}</p>}
                     </div>
                     <div>
-                        <button type="submit">Login</button>
+                        <button className="button" type="submit">Login</button>
                     </div>
                     <div>
-                        <Link to="/register">Sign in</Link>
+                        <Link to="/register" className="link">Sign in</Link>
                     </div>
                 </form>
             </div>
+        </div>
         </>
     )
 }

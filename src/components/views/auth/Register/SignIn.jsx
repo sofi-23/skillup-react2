@@ -85,6 +85,7 @@ export const SignIn = () => {
 
     return (
         <>
+        <div className="pageContainer">
             <div className="container">
                 <form className="form" onSubmit={formik.handleSubmit}>
                     <div>
@@ -134,7 +135,7 @@ export const SignIn = () => {
                                 value={formik.values.switch}
                                 onChange={()=>formik.setFieldValue('switch', !formik.values.switch)}
                                 name="switch"
-                                color="secondary"
+                                color="error"
                             />
                         }
                         label="I'm already on a team"
@@ -212,13 +213,14 @@ export const SignIn = () => {
                             }
                     </div>
                     <div>
-                        <button type="submit" >Sign in</button>
+                        <button type="submit" className="button" >Sign in</button>
                     </div>
                     <div>
-                        <Link to="/login" className="label">Login</Link>
+                        <Link to="/login" className="link">Go to login page</Link>
                     </div>
                 </form>
             </div>
+        </div>
         </>
     )
 }
