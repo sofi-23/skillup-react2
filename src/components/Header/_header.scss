@@ -14,14 +14,47 @@ header {
     }
     .wraper_center_header {
         display: flex;
+        align-items: center;
     }
     .wraper_right_header {
-        div:first-child {
-        cursor: pointer;
-        }
+  
         display: flex;
         flex-direction: row;
+        align-items: center;
+        margin-left: 1.5rem;
          
-    }
+        }
+        .linkContainer {
+            margin-top: 0;
+            height:2rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            box-shadow: 1px solid black;
+            .link {
+            color: $white;
+            margin-top: 0;
+            
+        }
+        }
+       
+        div {
+            margin-right: 1rem;
+            .wraper_username {
+                margin: 0;
+                display: flex;
+                align-items: center;
+                flex-direction: row;
+                justify-content: space-between;
+                text-align:end;
+                .cross {
+                    color: $red;
+                    cursor: pointer;
+                    
+                    margin: 0;    
+                }
+
+            }
+        }
     
 }

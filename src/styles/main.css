@@ -167,6 +167,9 @@ header .wraper_center_header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 header .wraper_right_header {
@@ -177,10 +180,57 @@ header .wraper_right_header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 1.5rem;
 }
 
-header .wraper_right_header div:first-child {
+header .linkContainer {
+  margin-top: 0;
+  height: 2rem;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 1px solid black;
+          box-shadow: 1px solid black;
+}
+
+header .linkContainer .link {
+  color: #FFFFFF;
+  margin-top: 0;
+}
+
+header div {
+  margin-right: 1rem;
+}
+
+header div .wraper_username {
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: end;
+}
+
+header div .wraper_username .cross {
+  color: #FF452B;
   cursor: pointer;
+  margin: 0;
 }
 
 .containerTasks {
